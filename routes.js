@@ -10,5 +10,5 @@ route.get('/login', loginController.index);
 
 route.post('/login', loginController.login)
 route.post('/login/register', loginController.register)
-
+route.get('/logout', loginController.logout)
 module.exports = route;
