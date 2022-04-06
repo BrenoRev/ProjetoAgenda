@@ -2,10 +2,10 @@
   "name": "aula17",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js --ignore public --ignore frontend",
+    "start": "nodemon index.js --ignore public --ignore frontend",
     "dev": "webpack -w"
   },
   "keywords": [],
