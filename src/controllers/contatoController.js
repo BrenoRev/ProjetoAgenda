@@ -27,3 +27,19 @@ exports.editIndex = async (req, res) => {
 
     res.render('contato', {contato});
 }
+
+exports.updateContato = async (req, res) => {
+    if(!req.params.id) return res.render('404');
+
+    const contato = new Contato(req.body);
+
+    try {
+        await contato.edit(req.params.id);
+        req.flash('success', 'Contato atualizado com sucesso');
+        res.redirect(`/contato/${contato.contato._id}`);
+    } catch (error) {
+        req.flash('errors', contato.errors);
+        res.redirect(`/contato/${contato.contato._id}`);
+        return;
+    }
+}

@@ -41,6 +41,19 @@ Contato.prototype.register = async function() {
     this.contato = await ContatoModel.create(this.body);
 }
 
+Contato.prototype.edit = async function(id) {
+
+    if(typeof id !== 'string') return;
+
+    this.valida();
+
+    if(this.errors.length > 0){
+        throw new Error('Erro ao editar contato');
+        return;
+    }
+
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
+}
 Contato.prototype.valida = function() {
 
     this.cleanUp();
