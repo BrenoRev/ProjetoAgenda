@@ -33,6 +33,18 @@ const ContatoModel = mongoose.model('Contato', ContatoSchema);
     return this.contato;
 }
 
+Contato.buscaContatos = async function() {
+    return await ContatoModel.find()
+                             .sort({ criadoEm: -1 });
+}
+
+Contato.deleteContato = async function(id) {
+    if(typeof id !== 'string')
+        return;
+
+    await ContatoModel.findByIdAndDelete(id);
+}
+
 Contato.prototype.register = async function() {
     this.valida();
     if(this.errors.length > 0)
@@ -54,6 +66,7 @@ Contato.prototype.edit = async function(id) {
 
     this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
 }
+
 Contato.prototype.valida = function() {
 
     this.cleanUp();

@@ -19,15 +19,21 @@
               <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">Sobrenome</th>
-                <th scope="col">Número</th>
-                <th scope="col">Estado</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Ações</th>
+              </tr>
             </thead>
-            <tr>
-              <td>Breno</td>
-              <td>Silva</td>
-              <td>88582992</td>
-              <td>Pernambuco</td>
-            </tr>
+            <% contatos.forEach(contato => { %>
+              <tr>
+                <td><%= contato.nome %></td>
+                <td><%= contato.sobrenome %></td>
+                <td><%= contato.email %></td>
+                <td><%= contato.telefone %></td>
+                <td> <a href="/contato/<%= contato._id %>">Editar</a></td>
+                <td> <a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
+              </tr>
+            <% }); %>
           </table>
         </div>
        </div>

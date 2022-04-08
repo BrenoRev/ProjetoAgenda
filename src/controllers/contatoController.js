@@ -43,3 +43,17 @@ exports.updateContato = async (req, res) => {
         return;
     }
 }
+
+exports.deleteContato= async (req, res) => {
+    if(!req.params.id) return res.render('404');
+
+    try{
+        await Contato.deleteContato(req.params.id);
+        req.flash('success', 'Contato excluido com sucesso');
+        res.redirect('/');
+    } catch (error) {
+        req.flash('errors', 'Erro ao excluir contato');
+        res.redirect('/');
+        return;
+    }
+}
