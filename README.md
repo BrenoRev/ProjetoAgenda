@@ -7,7 +7,6 @@
   <li>Mongo DB</li>
   <li>Bootstrap</li>
         </ul>
-
 <h5>
   
 ## Development Setup
@@ -40,7 +39,12 @@ npm install
 
 This creates a node_modules folder and installs all packages from the package.json file into that folder. You may see a few warnings during this process, but you should not see any errors.
 
-In the same command window (or the Command property in VS Code), type npm start.
+ .ENVIROMENTS VARIABLES
+  ```
+CONNECTIONSTRING=mongodb+srv://login:senha@nodejs.lbsya.mongodb.net/database?retryWrites=true&w=majority
+  ```
+ 
+In the console command window (or the Command property in VS Code), type npm start.
 
 ```
 npm start
